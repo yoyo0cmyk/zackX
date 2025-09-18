@@ -1,0 +1,21 @@
+{
+  "name": "إدارة سايبر كافيه - يوسف حماد",
+  "short_name": "سايبر كافيه",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2e4057",
+  "theme_color": "#2e4057",
+  "description": "نظام إدارة أجهزة PS4 و PS5 وتقارير وفواتير",
+  "icons": [
+    {
+      "src": "logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
