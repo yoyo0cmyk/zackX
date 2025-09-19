@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+    <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#2e4057">
+    
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>إدارة سايبر كافيه</title>
+<style>
+/* Multiplayer button styling */
+.multiplayer-btn {
+    background-color: #9c27b0; /* Purple */
+    color: white;
+    width: 36px; /* Square shape */
+    height: 36px;
+    padding: 0;
+    font-size: 18px;
+    line-height: 36px; /* Center icon vertically */
+    text-align: center;
+    border: none; /* Added */
+    border-radius: 5px; /* Added */
+    cursor: pointer; /* Added */
+    transition: background-color 0.3s; /* Added */
+}
+
+.multiplayer-btn:hover {
+    background-color: #7b1fa2; /* Darker purple */
+}
+
+.multiplayer-btn.active {
+    background-color: #ab47bc; /* Lighter purple */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+}
+
+.multiplayer-btn:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+.multiplayer-btn.active {
+  background-color: #28a745 !important;  /* أخضر */
+  color: white;
+  border: none;
+}
+
+    </style>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+       
+
+    </style>
+    
+    <link rel="stylesheet" href="themes.css">
+<script src="themeSwitcher.js" defer></script>
+    
+    
+</head>
+<body>
+   
+    
+<div class="page-logo">
+  <img src="logo.svg" alt="شعار الموقع">
+  <div class="logo-text">
+    <h2>Youssef Hammad</h2>
+    <p>Developer Zack</p>
+  </div>
+</div>
+
+
+
+<div class="login-container" id="login-page">
+<h1>تسجيل الدخول</h1>
+<form id="login-form">
+<div class="form-group">
+<input id="username" placeholder="اسم المستخدم" required="" type="text"/>
+</div>
+<div class="form-group">
+<input id="password" placeholder="كلمة المرور" required="" type="password"/>
+</div>
+<button class="btn" type="submit">تسجيل الدخول</button>
+</form>
+</div>
+
+<div class="container" id="app" style="display: none;">
+<div class="header">
+  <div class="header-left">
+    <h1>إدارة سايبر كافيه</h1>
+    <div class="nav-links">
+      <a class="nav-link active" data-page="dashboard" href="#">الأجهزة</a>
+      
+        <a class="nav-link" data-page="report" href="#">التقارير</a>
+      <a class="nav-link" data-page="settings" href="#">الإعدادات</a>
+      <a class="nav-link" href="#" id="logout-btn">تسجيل الخروج</a>
+    </div>
+  </div>
+  <img src="logo.svg" alt="لوجو" class="logo">
+</div>
+
+
+<div class="dashboard-page active-page" id="dashboard-page">
+<div class="section-title">
+<h2>أجهزة بلايستيشن 5</h2>
+</div>
+<div class="dashboard" id="ps5-devices">
+<div class="device-box" data-id="ps5-1">
+<button class="delete-btn" title="حذف">×</button>
+<h3>
+                        جهاز PS5 (1)
+                        <span class="status available">متاح</span>
+</h3>
+<div class="device-info">
+<p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+<p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+</div>
+<div class="device-actions">
+<button class="control-btn start-btn">بدء</button> <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+<button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+<button class="control-btn stop-btn" disabled="">إيقاف</button>
+</div>
+</div>
+<div class="device-box" data-id="ps5-2">
+<button class="delete-btn" title="حذف">×</button>
+<h3>
+                        جهاز PS5 (2)
+                        <span class="status available">متاح</span>
+</h3>
+<div class="device-info">
+<p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+<p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+</div>
+<div class="device-actions">
+<button class="control-btn start-btn">بدء</button> <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+<button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+<button class="control-btn stop-btn" disabled="">إيقاف</button>
+</div>
+</div>
+<div class="device-box" data-id="ps5-3">
+<button class="delete-btn" title="حذف">×</button>
+<h3>
+                        جهاز PS5 (3)
+                        <span class="status available">متاح</span>
+</h3>
+<div class="device-info">
+<p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+<p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+</div>
+<div class="device-actions">
+<button class="control-btn start-btn">بدء</button> <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+<button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+<button class="control-btn stop-btn" disabled="">إيقاف</button>
+</div>
+</div>
+<div class="device-box" data-id="ps5-4">
+<button class="delete-btn" title="حذف">×</button>
+<h3>
+                        جهاز PS5 (4)
+                        <span class="status available">متاح</span>
+</h3>
+<div class="device-info">
+<p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+<p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+</div>
+<div class="device-actions">
+<button class="control-btn start-btn">بدء</button> <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+<button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+<button class="control-btn stop-btn" disabled="">إيقاف</button>
+</div>
+</div>
+<div class="add-new-container">
+<button class="add-new-btn" id="add-ps5-btn">+</button>
+</div>
+</div>
+<div class="section-title">
+<h2>أجهزة بلايستيشن 4</h2>
+</div>
+<div class="dashboard" id="ps4-devices">
+<div class="device-box" data-id="ps4-1">
+<button class="delete-btn" title="حذف">×</button>
+<h3>
+                        جهاز PS4 (5)
+                        <span class="status available">متاح</span>
+</h3>
+<div class="device-info">
+<p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+<p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+</div>
+<div class="device-actions">
+<button class="control-btn start-btn">بدء</button> <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+<button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+<button class="control-btn stop-btn" disabled="">إيقاف</button>
+</div>
+</div>
+<div class="device-box" data-id="ps4-2">
+<button class="delete-btn" title="حذف">×</button>
+<h3>
+                        جهاز PS4 (6)
+                        <span class="status available">متاح</span>
+</h3>
+<div class="device-info">
+<p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+<p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+</div>
+<div class="device-actions">
+<button class="control-btn start-btn">بدء</button> <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+<button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+<button class="control-btn stop-btn" disabled="">إيقاف</button>
+</div>
+</div>
+<div class="device-box" data-id="ps4-3">
+<button class="delete-btn" title="حذف">×</button>
+<h3>
+                        جهاز PS4 (7)
+                        <span class="status available">متاح</span>
+</h3>
+<div class="device-info">
+<p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+<p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+</div>
+<div class="device-actions">
+<button class="control-btn start-btn">بدء</button> <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+<button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+<button class="control-btn stop-btn" disabled="">إيقاف</button>
+</div>
+</div>
+<div class="device-box" data-id="ps4-4">
+<button class="delete-btn" title="حذف">×</button>
+<h3>
+                        جهاز PS4 (8)
+                        <span class="status available">متاح</span>
+</h3>
+<div class="device-info">
+<p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+<p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+</div>
+<div class="device-actions">
+<button class="control-btn start-btn">بدء</button> <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+<button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+<button class="control-btn stop-btn" disabled="">إيقاف</button>
+</div>
+</div>
+<div class="add-new-container">
+<button class="add-new-btn" id="add-ps4-btn">+</button>
+</div>
+</div>
+</div>
+    
+    
+
+<div class="report-page" id="report-page">
+    <h2 class="section-title">التقارير اليومية</h2>
+    <div class="report-container" id="daily-report">
+        <div class="report-header">
+            <h3>التقرير اليومي - <span id="report-date"></span></h3>
+            <div class="report-actions">
+             <a id="download-txt" class="report-btn" href="#" download>
+    <i>💾</i> تنزيل تقرير اليوم (TXT)
+</a>
+
+              
+            </div>
+        </div>
+     
+
+        
+<table class="report-table" id="unified-report-table">
+    <thead>
+        <tr>
+            <th>الجهاز</th>
+            <th>الوقت (من - إلى)</th>
+            <th>الساعات</th>
+            <th>سعر الوقت</th>
+            <th>المنتج</th>
+            <th>سعر المنتج</th>
+            <th>حذف</th> <!-- ✅ العمود الجديد -->
+        </tr>
+    </thead>
+    <tbody id="report-table-body"></tbody>
+</table>
+    </div>
+</div>
+
+<div class="settings-page" id="settings-page">
+<h2 class="section-title">الإعدادات</h2>
+<div class="settings-container">
+<div class="settings-form">
+
+<div class="settings-section">
+
+<h3>أسعار الأجهزة (للساعة)</h3>
+<div class="devices-settings-wrapper">
+
+  <div class="device-settings right">
+    <div class="setting-item">
+      <label>سعر ساعة PS4:</label>
+      <input id="ps4-price" min="0" type="number" value="30"/>
+    </div>
+    <div class="setting-item">
+      <label> سعر  الزوجي ـ PS4:</label>
+      <input id="multiplayer-price-multiplier-ps4" min="1" step="0.1" type="number" value="1.5"/>
+    </div>
+  </div>
+
+ 
+  <div class="device-settings left">
+    <div class="setting-item">
+      <label>سعر ساعة PS5:</label>
+      <input id="ps5-price" min="0" type="number" value="50"/>
+    </div>
+    <div class="setting-item">
+      <label> سعر الزوجي PS5:</label>
+      <input id="multiplayer-price-multiplier-ps5" min="1" step="0.1" type="number" value="1.5"/>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="settings-section">
+<h3>إعدادات التقرير اليومي</h3>
+<div class="setting-item">
+<label>عرض التقرير اليومي عند تسجيل الدخول:</label>
+<label class="toggle-switch">
+<input id="show-report-on-login" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="setting-item">
+<label>حفظ التقارير تلقائياً:</label>
+<label class="toggle-switch">
+<input checked="" id="auto-save-reports" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+
+</div>
+    
+    <div class="settings-section">
+    <h3>اختر الثيم</h3>
+    <div class="theme-buttons" style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button onclick="ThemeSwitcher.switchTo('light')" class="btn" style="flex: 1; min-width: 120px; background-color: #2e4057;">فاتح</button>
+        <button onclick="ThemeSwitcher.switchTo('dark')" class="btn" style="flex: 1; min-width: 120px; background-color: #121212; color: #e0e0e0;">داكن</button>
+        <button onclick="ThemeSwitcher.switchTo('vibrant')" class="btn" style="flex: 1; min-width: 120px; background-color: #ff6b6b; color: white;">مزركش</button>
+    </div>
+</div>
+    
+<button id="save-settings" class="btn small-btn">💾 حفظ الإعدادات</button>
+
+
+<script>
+const dailyReports = {};
+let deviceProducts = {};
+let sessionRecords = []; 
+let productRecords = []; 
+    let timerInterval = null;
+let seconds = 0;
+let isMultiplayer = false;
+
+// ==== تعريف عناصر الـ DOM ==== //
+// يجب أن تكون هذه العناصر موجودة في الصفحة قبل تشغيل السكربت
+const deviceBox = document.querySelector('.device-box');
+const timerEl = document.querySelector('.timer');
+const costEl = document.querySelector('.cost');
+const statusEl = document.querySelector('.status');
+const startBtn = document.querySelector('.start-btn');
+const stopBtn = document.querySelector('.stop-btn');
+const multiplayerBtn = document.querySelector('.multiplayer-btn');
+
+
+
+       
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+           
+            if (username === 'admin' && password === 'admin') {
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('app').style.display = 'block';
+                
+                
+              loadSettings(); // ← حمّل الإعدادات بعد تسجيل الدخول
+loadInvoicesFromLocalStorage();
+
+
+
+const showReportSetting = localStorage.getItem('showReportOnLogin');
+if (showReportSetting === 'true') {
+    showPage('report');
+}
+
+            } else {
+                alert('اسم المستخدم أو كلمة المرور غير صحيحة');
+            }
+        });
+        
+        
+
+
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            document.getElementById('login-page').style.display = 'block';
+            document.getElementById('app').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+        
+        
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('[id$="-page"]');
+        
+        function showPage(pageId) {
+            
+
+
+            navLinks.forEach(link => {
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('active');
+                } else if (link.id !== 'logout-btn') {
+                    link.classList.remove('active');
+                }
+            });
+            
+            
+
+
+            pages.forEach(page => {
+                if (page.id === pageId + '-page') {
+                    page.classList.add('active-page');
+                } else {
+                    page.classList.remove('active-page');
+                }
+            });
+            
+            
+
+
+            if (pageId === 'settings') {
+                updateDeleteLists();
+            }
+            
+       
+            if (pageId === 'report') {
+               
+            }
+        }
+        
+        navLinks.forEach(link => {
+            if (link.id !== 'logout-btn') {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.getAttribute('data-page');
+                    showPage(targetPage);
+                });
+            }
+        });
+        function setupDeleteButtons() {
+  const deleteButtons = document.querySelectorAll('.delete-btn');
+  deleteButtons.forEach(deleteBtn => {
+    deleteBtn.onclick = function () {
+      const deviceBox = deleteBtn.closest('.device-box');
+      if (deviceBox) deviceBox.remove();
+    };
+  });
+}
+  
+
+        let sessionData = [];
+        
+        function setupDeviceTimers() {
+            document.querySelectorAll('.device-box').forEach((deviceBox, index) => {
+                const startBtn = deviceBox.querySelector('.start-btn');
+                const stopBtn = deviceBox.querySelector('.stop-btn');
+            const multiplayerBtn = deviceBox.querySelector('.multiplayer-btn'); 
+            let isMultiplayer = false;
+                const timerEl = deviceBox.querySelector('.timer');
+                const costEl = deviceBox.querySelector('.cost');
+                const statusEl = deviceBox.querySelector('.status');
+                const deviceId = deviceBox.getAttribute('data-id');
+                
+                if (!startBtn || !stopBtn || !timerEl || !costEl || !statusEl) return;
+                
+                let timerInterval;
+                let seconds = 0;
+                let sessionStartTime;
+multiplayerBtn.addEventListener('click', function () {
+  if (startBtn.disabled) {
+    alert('لا يمكن تغيير وضع اللعب أثناء تشغيل الجهاز.');
+    return;
+  }
+  isMultiplayer = !isMultiplayer;
+  this.classList.toggle('active', isMultiplayer);
+  this.title = isMultiplayer ? 'إلغاء تفعيل اللعب الزوجي' : 'تفعيل اللعب الزوجي';
+});
+
+                
+                startBtn.addEventListener('click', function() {
+                    
+ deviceProducts[deviceId] = [];
+                    sessionStartTime = new Date();
+                    localStorage.setItem('sessionStartTime', sessionStartTime.toISOString()); 
+let activeSessions = JSON.parse(localStorage.getItem('activeSessions') || '{}');
+activeSessions[deviceId] = {
+    startTime: sessionStartTime.toISOString(),
+    seconds: 0,
+    isMultiplayer: isMultiplayer,
+    products: []
+};
+localStorage.setItem('activeSessions', JSON.stringify(activeSessions));
+
+                    
+                   
+                    timerInterval = setInterval(function() {
+                        seconds++;
+                        const hours = Math.floor(seconds / 3600);
+                        const minutes = Math.floor((seconds % 3600) / 60);
+                        const secs = seconds % 60;
+                        
+                       
+                        timerEl.textContent = 
+                            (hours < 10 ? '0' + hours : hours) + ':' +
+                            (minutes < 10 ? '0' + minutes : minutes) + ':' +
+                            (secs < 10 ? '0' + secs : secs);
+                        
+                       
+                        const isPS5 = deviceBox.querySelector('h3').textContent.includes('PS5');
+                        const hourlyRate = isPS5 ? 
+                            parseFloat(document.getElementById('ps5-price').value) : 
+                            parseFloat(document.getElementById('ps4-price').value);
+                        let currentRate = hourlyRate;
+                        if (isMultiplayer) {
+                            let multiplier = 1.5;
+if (isPS5) {
+  const ps5Multiplier = document.getElementById('multiplayer-price-multiplier-ps5');
+  multiplier = ps5Multiplier ? parseFloat(ps5Multiplier.value) : 1.5;
+} else {
+  const ps4Multiplier = document.getElementById('multiplayer-price-multiplier-ps4');
+  multiplier = ps4Multiplier ? parseFloat(ps4Multiplier.value) : 1.5;
+}
+
+                            currentRate *= Math.max(1, multiplier);
+                        }
+                        const cost = (seconds / 3600) * currentRate;
+                        costEl.textContent = cost.toFixed(2);
+let activeSessions = JSON.parse(localStorage.getItem('activeSessions') || '{}');
+if (activeSessions[deviceId]) {
+    activeSessions[deviceId].seconds = seconds;
+    localStorage.setItem('activeSessions', JSON.stringify(activeSessions));
+}        
+                    }, 1000);
+                    
+                    
+                    startBtn.disabled = true;
+                    stopBtn.disabled = false;
+                    statusEl.textContent = 'قيد الاستخدام';
+                    statusEl.classList.remove('available');
+                    statusEl.classList.add('in-use');
+                    multiplayerBtn.disabled = true; 
+                });
+                
+          stopBtn.addEventListener('click', function() {
+    clearInterval(timerInterval);
+
+    // حذف الجلسة النشطة من localStorage
+    let activeSessions = JSON.parse(localStorage.getItem('activeSessions') || '{}');
+    delete activeSessions[deviceId];
+    localStorage.setItem('activeSessions', JSON.stringify(activeSessions));
+
+    const sessionEndTime = new Date();
+    const isPS5 = deviceBox.querySelector('h3').textContent.includes('PS5');
+    const deviceName = deviceBox.querySelector('h3').textContent.trim().split('\n')[0].trim();
+    const hourlyRate = isPS5 ? 
+        parseFloat(document.getElementById('ps5-price').value) : 
+        parseFloat(document.getElementById('ps4-price').value);
+    
+    // حساب التكاليف
+    let timeCost = seconds >= 60 ? parseFloat(costEl.textContent) : 0;
+    const productsList = deviceProducts[deviceId] || [];
+    const productsTotal = productsList.reduce((sum, product) => sum + product.price, 0);
+    const totalCost = timeCost + productsTotal;
+    
+    // إنشاء كائن الفاتورة
+    const invoice = {
+        id: 'inv-' + Date.now(),
+        deviceId: deviceId,
+        deviceName: deviceName,
+        date: new Date().toISOString(),
+        startTime: sessionStartTime,
+        endTime: sessionEndTime,
+        duration: seconds,
+        timeCost: timeCost,
+        products: productsList,
+        productsTotal: productsTotal,
+        totalCost: totalCost,
+        isMultiplayer: isMultiplayer
+    };
+   
+    // عرض الفاتورة للمستخدم
+    displayInvoice(invoice);
+
+    // تسجيل الجلسة في التقارير إذا كانت مؤهلة
+    if (seconds > 0 || productsList.length > 0) {
+        const sessionRecord = {
+            deviceId: deviceId,
+            deviceName: deviceBox.querySelector('h3').textContent.split('#')[0].trim(),
+               startTime: sessionStartTime.getTime(), 
+               endTime: sessionEndTime.getTime(),
+            duration: seconds,
+            cost: timeCost,
+            isMultiplayer: isMultiplayer,
+            products: productsList
+        };
+
+        sessionRecords.push(sessionRecord);
+localStorage.setItem('sessionRecords', JSON.stringify(sessionRecords)); // ⬅️ حفظ الجلسات
+
+        updateReportTable();
+
+        const dateKey = sessionStartTime.toISOString().split('T')[0];
+        if (!dailyReports[dateKey]) dailyReports[dateKey] = [];
+        dailyReports[dateKey].push(sessionRecord);
+
+        generateTextReportForDate(dateKey);
+    }
+
+    // إعادة تعيين الحالة
+    resetDeviceState();
+});
+
+
+
+// دالة لعرض الفاتورة
+function displayInvoice(invoice) {
+    let invoiceMessage = `فاتورة الجلسة #${invoice.id.split('-')[1]}\n\n`;
+    invoiceMessage += `التاريخ: ${new Date(invoice.date).toLocaleString('ar-EG')}\n`;
+    invoiceMessage += `الجهاز: ${invoice.deviceName}\n`;
+    invoiceMessage += `المدة: ${formatTime(invoice.duration)}\n`;
+    invoiceMessage += `سعر الوقت: ${invoice.timeCost.toFixed(2)} جنيه\n\n`;
+    
+    if (invoice.products.length > 0) {
+        invoiceMessage += `المنتجات:\n`;
+        invoice.products.forEach(product => {
+            invoiceMessage += `- ${product.name}: ${product.price.toFixed(2)} جنيه\n`;
+        });
+        invoiceMessage += `\nإجمالي المنتجات: ${invoice.productsTotal.toFixed(2)} جنيه\n`;
+    } else {
+        invoiceMessage += `لم يتم إضافة أي منتجات\n\n`;
+    }
+    
+    invoiceMessage += `الإجمالي الكلي: ${invoice.totalCost.toFixed(2)} جنيه`;
+    
+    alert(invoiceMessage);
+}
+
+// دالة لإعادة تعيين حالة الجهاز
+function resetDeviceState() {
+    deviceProducts[deviceId] = [];
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+    multiplayerBtn.disabled = false;
+    statusEl.textContent = 'متاح';
+    statusEl.classList.remove('in-use');
+    statusEl.classList.add('available');
+    seconds = 0;
+    timerEl.textContent = '00:00:00';
+    costEl.textContent = '0.00';
+    multiplayerBtn.disabled = false;
+    updateReportData();
+}
+
+// دالة مساعدة لتنسيق الوقت
+function formatTime(totalSeconds) {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+            });
+        }
+        
+       
+        setupDeviceTimers();
+        setupDeleteButtons();
+        setupAddProductButtons();
+         restoreActiveSessions();
+
+
+        
+     document.getElementById('save-settings').addEventListener('click', function () {
+    const ps5Price = document.getElementById('ps5-price').value;
+    const ps4Price = document.getElementById('ps4-price').value;
+    const ps5Multi = document.getElementById('multiplayer-price-multiplier-ps5').value;
+    const ps4Multi = document.getElementById('multiplayer-price-multiplier-ps4').value;
+    const showReport = document.getElementById('show-report-on-login').checked;
+    const autoSave = document.getElementById('auto-save-reports').checked;
+
+    localStorage.setItem('ps5Price', ps5Price);
+    localStorage.setItem('ps4Price', ps4Price);
+    localStorage.setItem('ps5Multi', ps5Multi);
+    localStorage.setItem('ps4Multi', ps4Multi);
+    localStorage.setItem('showReportOnLogin', showReport);
+    localStorage.setItem('autoSaveReports', autoSave);
+
+    alert('تم حفظ الإعدادات بنجاح');
+});
+
+
+        
+        
+        function setupModals() {
+           
+            const modals = document.querySelectorAll('.modal');
+            
+           
+            const closeButtons = document.querySelectorAll('.close-modal, .modal-btn.cancel');
+            
+           
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    modal.style.display = 'none';
+                });
+            });
+            
+            
+            window.addEventListener('click', function(event) {
+                modals.forEach(modal => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+        }
+        
+       
+        setupModals();
+        
+  
+        
+       
+document.getElementById('add-ps5-btn').addEventListener('click', function () {
+    const ps5Devices = document.querySelectorAll('#ps5-devices .device-box');
+    const nextNumber = ps5Devices.length + 1;
+
+    const ps5Container = document.getElementById('ps5-devices');
+    const newDevice = document.createElement('div');
+    const uniqueId = 'ps5-' + nextNumber;
+    newDevice.className = 'device-box';
+    newDevice.setAttribute('data-id', uniqueId);
+    newDevice.innerHTML = `
+        <button class="delete-btn" title="حذف">×</button>
+        <h3>جهاز PS5 #${nextNumber} <span class="status available">متاح</span></h3>
+        <div class="device-info">
+            <p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+            <p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+        </div>
+        <div class="device-actions">
+            <button class="control-btn start-btn">بدء</button>
+            <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+            <button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+            <button class="control-btn stop-btn" disabled>إيقاف</button>
+        </div>
+    `;
+
+    const addBtnContainer = document.querySelector('#ps5-devices .add-new-container');
+    ps5Container.insertBefore(newDevice, addBtnContainer);
+
+   
+    setupDeviceTimers();
+    setupDeleteButtons();
+    setupAddProductButtons(); 
+     restoreActiveSessions();
+
+});
+
+
+
+
+document.getElementById('add-ps4-btn').addEventListener('click', function () {
+    const ps4Devices = document.querySelectorAll('#ps4-devices .device-box');
+    const nextNumber = ps4Devices.length + 1;
+
+    const ps4Container = document.getElementById('ps4-devices');
+    const newDevice = document.createElement('div');
+    const uniqueId = 'ps4-' + nextNumber;
+    newDevice.className = 'device-box';
+    newDevice.setAttribute('data-id', uniqueId);
+    newDevice.innerHTML = `
+        <button class="delete-btn" title="حذف">×</button>
+        <h3>جهاز PS4 #${nextNumber} <span class="status available">متاح</span></h3>
+        <div class="device-info">
+            <p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+            <p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+        </div>
+        <div class="device-actions">
+            <button class="control-btn start-btn">بدء</button>
+            <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+            <button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+            <button class="control-btn stop-btn" disabled>إيقاف</button>
+        </div>
+    `;
+
+    const addBtnContainer = document.querySelector('#ps4-devices .add-new-container');
+    ps4Container.insertBefore(newDevice, addBtnContainer);
+
+   
+    setupDeviceTimers();
+    setupDeleteButtons();
+    setupAddProductButtons();
+     restoreActiveSessions();
+  
+});
+
+
+
+        
+       
+        function generateUniqueId(prefix) {
+            return prefix + '-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+        }
+        
+               
+   document.getElementById('confirm-add-ps5').addEventListener('click', function() {
+            const deviceNumber = document.getElementById('new-ps5-number').value;
+            
+         if (!deviceNumber) {
+               alert('يرجى إدخال رقم الجهاز');
+                return;
+            }
+            
+            
+            const ps5Container = document.getElementById('ps5-devices');
+            const newPS5Device = document.createElement('div');
+          const uniqueId = generateUniqueId('ps5');
+           newPS5Device.className = 'device-box';
+           newPS5Device.setAttribute('data-id', uniqueId);
+            newPS5Device.innerHTML = `
+  <button class="delete-btn" title="حذف">×</button>
+ <h3>
+    جهاز PS5 #${deviceNumber}
+    <span class="status available">متاح</span>
+  </h3>
+ <div class="device-info">
+      <p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+     <p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+  </div>
+  <div class="device-actions">
+      <button class="control-btn start-btn">بدء</button>
+     <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+      <button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+      <button class="control-btn stop-btn" disabled>إيقاف</button>
+  </div>
+`;
+
+            
+          
+            const addBtnContainer = document.querySelector('#ps5-devices .add-new-container');
+            ps5Container.insertBefore(newPS5Device, addBtnContainer);
+            setupAddProductButtons();           
+            setupDeleteButtons();
+setupAddProductButtons();
+restoreActiveSessions();
+
+
+
+            
+            
+            document.getElementById('add-ps5-modal').style.display = 'none';
+            document.getElementById('new-ps5-number').value = '';                       
+            setupDeviceTimers();
+            setupDeleteButtons();
+           setupAddProductButtons();
+            restoreActiveSessions();
+            updateDeleteLists();
+            
+            alert(`تم إضافة جهاز PS5 #${deviceNumber} بنجاح`);
+        });
+        
+        
+        document.getElementById('confirm-add-ps4').addEventListener('click', function() {
+            const deviceNumber = document.getElementById('new-ps4-number').value;
+            
+            if (!deviceNumber) {
+                alert('يرجى إدخال رقم الجهاز');
+                return;
+            }
+            
+        
+            
+            
+            const addBtnContainer = document.querySelector('#ps4-devices .add-new-container');
+            ps4Container.insertBefore(newPS4Device, addBtnContainer);
+          setupDeviceTimers();
+setupDeleteButtons();
+setupAddProductButtons();
+restoreActiveSessions();
+
+
+            
+            
+            document.getElementById('add-ps4-modal').style.display = 'none';
+            document.getElementById('new-ps4-number').value = '';         
+            setupDeviceTimers();
+            setupDeleteButtons();
+          setupAddProductButtons();
+restoreActiveSessions();
+
+            updateDeleteLists();
+            
+            alert(`تم إضافة جهاز PS4 #${deviceNumber} بنجاح`);
+        });
+        
+        
+       document.getElementById('add-device-btn').addEventListener('click', function () {
+    const deviceType = document.getElementById('new-device-type').value;
+
+    let nextDeviceNumber = 1;
+    const existingDevices = document.querySelectorAll(`#${deviceType.toLowerCase()}-devices .device-box`);
+    if (existingDevices.length > 0) {
+        const lastDevice = existingDevices[existingDevices.length - 1];
+        const title = lastDevice.querySelector('h3').textContent;
+        const match = title.match(/#(\d+)/);
+        if (match) {
+            nextDeviceNumber = parseInt(match[1]) + 1;
+        }
+    }
+
+    
+    if (deviceType === 'PS5') {
+        document.getElementById('new-ps5-number').value = nextDeviceNumber;
+        document.getElementById('confirm-add-ps5').click();
+    } else {
+        document.getElementById('new-ps4-number').value = nextDeviceNumber;
+        document.getElementById('confirm-add-ps4').click();
+    }
+});
+
+        
+
+
+        
+       
+
+        
+   
+        
+         
+        
+function loadSettings() {
+    const ps5 = localStorage.getItem('ps5Price');
+    const ps4 = localStorage.getItem('ps4Price');
+    const ps5Multi = localStorage.getItem('ps5Multi');
+    const ps4Multi = localStorage.getItem('ps4Multi');
+    const showReport = localStorage.getItem('showReportOnLogin');
+    const autoSave = localStorage.getItem('autoSaveReports');
+
+    // ✅ افتراضيات لو مفيش بيانات محفوظة
+    document.getElementById('ps5-price').value = ps5 !== null ? ps5 : 25;
+    document.getElementById('ps4-price').value = ps4 !== null ? ps4 : 20;
+    document.getElementById('multiplayer-price-multiplier-ps5').value = ps5Multi !== null ? ps5Multi : 1.5;
+    document.getElementById('multiplayer-price-multiplier-ps4').value = ps4Multi !== null ? ps4Multi : 1.5;
+    document.getElementById('show-report-on-login').checked = (showReport === 'true');
+    document.getElementById('auto-save-reports').checked = (autoSave !== null ? autoSave === 'true' : true);
+}
+
+
+        loadSettings();
+
+       
+        updateReportData();
+
+
+
+
+
+
+
+function setupDeleteButtons() {
+  const deleteButtons = document.querySelectorAll('.delete-btn');
+  deleteButtons.forEach(deleteBtn => {
+    deleteBtn.onclick = function () {
+      const deviceBox = deleteBtn.closest('.device-box');
+      if (deviceBox) deviceBox.remove();
+    };
+  });
+}
+
+
+
+
+
+function setupAddProductButtons() {
+    document.querySelectorAll('.device-box').forEach(deviceBox => {
+        const addProductBtn = deviceBox.querySelector('.add-product-btn');
+        const deviceId = deviceBox.getAttribute('data-id');
+
+        if (!addProductBtn) return;
+
+        addProductBtn.onclick = function () {
+            const name = prompt("أدخل اسم المنتج:");
+            if (!name) return;
+
+            const priceStr = prompt("أدخل سعر المنتج:");
+            if (!priceStr) return;
+            const price = parseFloat(priceStr);
+            if (isNaN(price)) {
+                alert("السعر غير صالح");
+                return;
+            }
+
+            const product = { name, price };
+
+            // تأكد إن فيه مصفوفة للجهاز ده
+            if (!deviceProducts[deviceId]) {
+                deviceProducts[deviceId] = [];
+            }
+            deviceProducts[deviceId].push(product);
+
+            // حدث session في localStorage
+            let sessions = JSON.parse(localStorage.getItem('activeSessions') || '{}');
+            if (!sessions[deviceId]) return;
+
+            if (!sessions[deviceId].products) {
+                sessions[deviceId].products = [];
+            }
+            sessions[deviceId].products.push(product);
+            localStorage.setItem('activeSessions', JSON.stringify(sessions));
+
+            alert(`تمت إضافة المنتج (${name}) بـ ${price} جنيه`);
+        };
+    });
+}
+
+
+
+function updateReportTable() {
+    const tbody = document.getElementById('report-table-body');
+    tbody.innerHTML = '';
+
+    const savedRecords = localStorage.getItem('sessionRecords');
+    if (savedRecords) {
+        sessionRecords = JSON.parse(savedRecords).map(record => ({
+            ...record,
+            startTime: new Date(record.startTime),
+            endTime: new Date(record.endTime)
+        }));
+
+        // ✅ فلترة الجلسات غير المفيدة
+        const seen = new Set();
+        sessionRecords = sessionRecords.filter(record => {
+            const isZero = record.duration === 0 && (record.cost === 0 || !record.cost) && (!record.products || record.products.length === 0);
+            const key = `${record.deviceId}-${record.startTime.getTime()}`;
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return !isZero;
+        });
+
+        // 📝 تحديث localStorage بعد الفلترة
+        localStorage.setItem('sessionRecords', JSON.stringify(sessionRecords));
+    }
+
+    sessionRecords.forEach(record => {
+        const startTime = record.startTime.toLocaleTimeString();
+        const endTime = record.endTime.toLocaleTimeString();
+        const duration = formatTime(record.duration, record.isMultiplayer);
+
+        const productsList = (record.products || []).map(p =>
+            `${p.name} (${p.price.toFixed(2)} جنيه)`
+        ).join('، ') || 'لا يوجد';
+
+        const productsTotal = (record.products || []).reduce((sum, p) => sum + (p.price || 0), 0);
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${record.deviceName || 'غير معروف'}</td>
+            <td>${startTime} - ${endTime}</td>
+            <td>${duration}</td>
+            <td>${(record.cost || 0).toFixed(2)} جنيه</td>
+            <td>${productsList}</td>
+            <td>${productsTotal.toFixed(2)} جنيه</td>
+            <td><button class="delete-row-btn" style="color:red;">❌</button></td>
+        `;
+
+        // ✅ زر الحذف من الواجهة والـ localStorage
+        const deleteBtn = row.querySelector('.delete-row-btn');
+        deleteBtn.addEventListener('click', () => {
+            // حذف من المصفوفة
+            sessionRecords = sessionRecords.filter(r =>
+                !(r.deviceId === record.deviceId &&
+                  new Date(r.startTime).getTime() === new Date(record.startTime).getTime())
+            );
+
+            // تحديث localStorage
+            localStorage.setItem('sessionRecords', JSON.stringify(sessionRecords));
+
+            // حذف من الجدول
+            row.remove();
+        });
+
+        tbody.appendChild(row);
+    });
+}
+
+setupAddProductButtons();
+restoreActiveSessions();
+
+
+function formatTime(seconds, isMultiplayer) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const type = isMultiplayer === true ? 'زوجي' : isMultiplayer === false ? 'فردي' : 'غير محدد';
+    return `${hours} ساعة ${minutes} دقيقة (${type})`;
+}
+function generateTextReportForDate(dateKey) {
+    const sessions = dailyReports[dateKey];
+    if (!sessions || sessions.length === 0) return;
+
+    let content = `***************\n🗓️ ${formatArabicDate(dateKey)}\n***************\n\n`;
+    let total = 0;
+
+    sessions.forEach(s => {
+        const start = new Date(s.startTime).toLocaleTimeString();
+        const end = new Date(s.endTime).toLocaleTimeString();
+        const hours = Math.floor(s.duration / 3600);
+        const minutes = Math.floor((s.duration % 3600) / 60);
+        const type = s.isMultiplayer === true ? 'زوجي' : s.isMultiplayer === false ? 'فردي' : 'غير محدد';
+        const products = s.products.map(p => `${p.name} (${p.price.toFixed(2)} جنيه)`).join('، ') || 'لا يوجد';
+        const productTotal = s.products.reduce((sum, p) => sum + p.price, 0);
+        const sessionTotal = s.cost + productTotal;
+        total += sessionTotal;
+
+        content += `الجهاز: ${s.deviceName}\n`;
+        content += `الوقت: ${start} - ${end}\n`;
+        content += `المدة: ${hours} ساعة ${minutes} دقيقة (${type})\n`;
+        content += `سعر الوقت: ${s.cost.toFixed(2)} جنيه\n`;
+        content += `المنتجات: ${products}\n`;
+        content += `الإجمالي: ${sessionTotal.toFixed(2)} جنيه\n\n`;
+    });
+
+    content += `إجمالي الإيرادات: ${total.toFixed(2)} جنيه`;
+
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.getElementById('download-txt');
+    link.href = url;
+    link.download = `report-${dateKey}.txt`;
+}
+function formatArabicDate(dateStr) {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('ar-EG', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    
+    
+}
+// ------ الدالة المُعدّلة لاستعادة الجلسات النشطة ------ //
+function restoreActiveSessions() {
+    const activeSessions = JSON.parse(localStorage.getItem('activeSessions') || '{}');
+    
+    document.querySelectorAll('.device-box').forEach(deviceBox => {
+        const deviceId = deviceBox.getAttribute('data-id');
+        const session = activeSessions[deviceId];
+        
+        if (!session) return;
+
+        // استعادة المتغيرات الأساسية
+        let seconds = session.seconds || 0;
+        let isMultiplayer = session.isMultiplayer || false;
+        const sessionStartTime = new Date(session.startTime);
+        
+        // استعادة المنتجات لهذا الجهاز
+        deviceProducts[deviceId] = session.products || [];
+        
+        // عناصر واجهة المستخدم
+        const startBtn = deviceBox.querySelector('.start-btn');
+        const stopBtn = deviceBox.querySelector('.stop-btn');
+        const timerEl = deviceBox.querySelector('.timer');
+        const costEl = deviceBox.querySelector('.cost');
+        const statusEl = deviceBox.querySelector('.status');
+        const multiplayerBtn = deviceBox.querySelector('.multiplayer-btn');
+
+        // تحديث حالة الواجهة
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        multiplayerBtn.disabled = true;
+        statusEl.textContent = 'قيد الاستخدام';
+        statusEl.classList.replace('available', 'in-use');
+        
+        if (isMultiplayer) {
+            multiplayerBtn.classList.add('active');
+            multiplayerBtn.title = 'إلغاء تفعيل اللعب الزوجي';
+        }
+
+        // حساب التكلفة الأولية (الوقت + المنتجات)
+        const isPS5 = deviceBox.querySelector('h3').textContent.includes('PS5');
+        const basePrice = isPS5 ? 
+            parseFloat(document.getElementById('ps5-price').value) : 
+            parseFloat(document.getElementById('ps4-price').value);
+        const multiplier = isPS5 ?
+            parseFloat(document.getElementById('multiplayer-price-multiplier-ps5').value) :
+            parseFloat(document.getElementById('multiplayer-price-multiplier-ps4').value);
+        
+        const timeCost = (seconds / 3600) * (isMultiplayer ? basePrice * multiplier : basePrice);
+        const productsCost = deviceProducts[deviceId].reduce((sum, product) => sum + (product.price || 0), 0);
+        const totalCost = timeCost + productsCost;
+
+        // تحديث واجهة المستخدم
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const secs = seconds % 60;
+        timerEl.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        costEl.textContent = timeCost.toFixed(2);
+
+
+        // تشغيل المؤقت من جديد
+           // تشغيل المؤقت من جديد - النسخة المعدلة
+        let lastUpdateTime = Date.now(); // ⬅️ إضافة: حفظ وقت آخر تحديث
+        let timerInterval = setInterval(() => {
+            const now = Date.now();
+            const elapsed = now - lastUpdateTime; // ⬅️ إضافة: حساب الوقت المنقضي الحقيقي
+            const elapsedSeconds = Math.floor(elapsed / 1000); // ⬅️ إضافة: تحويله لثواني
+
+            if (elapsedSeconds > 0) { // ⬅️ إضافة: تحديث فقط إذا مرّت ثانية أو أكثر
+                seconds += elapsedSeconds;
+                lastUpdateTime = now; // ⬅️ إضافة: تحديث وقت آخر تحديث
+
+                // تحديث localStorage
+                const updatedSessions = JSON.parse(localStorage.getItem('activeSessions') || '{}');
+                if (updatedSessions[deviceId]) {
+                    updatedSessions[deviceId].seconds = seconds;
+                    localStorage.setItem('activeSessions', JSON.stringify(updatedSessions));
+                }
+            }
+
+            // تحديث الوقت في الواجهة (يحدث دائماً ليعطي إحساساً بالسلاسة)
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            timerEl.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+            // تحديث التكلفة
+            const updatedTimeCost = (seconds / 3600) * (isMultiplayer ? basePrice * multiplier : basePrice);
+            const updatedTotalCost = updatedTimeCost + productsCost;
+            costEl.textContent = updatedTotalCost.toFixed(2);
+
+        }, 1000);
+        
+        
+
+
+
+        // ربط حدث الإيقاف
+        const handleStop = () => {
+            clearInterval(timerInterval);
+            
+            // حذف الجلسة من localStorage
+            const updatedSessions = JSON.parse(localStorage.getItem('activeSessions') || '{}');
+            delete updatedSessions[deviceId];
+            localStorage.setItem('activeSessions', JSON.stringify(updatedSessions));
+            
+            // تسجيل الجلسة في التقارير
+            const sessionEndTime = new Date();
+            const finalTimeCost = (seconds / 3600) * (isMultiplayer ? basePrice * multiplier : basePrice);
+            const finalProductsCost = deviceProducts[deviceId].reduce((sum, product) => sum + (product.price || 0), 0);
+            const finalTotalCost = finalTimeCost + finalProductsCost;
+            const finalDuration = seconds; // إصلاح: تعريف المتغير
+            
+            // إصلاح: بناء كائن الجلسة بشكل صحيح
+            const sessionRecord = {
+                deviceId: deviceId,
+                deviceName: deviceBox.querySelector('h3').textContent,
+                startTime: sessionStartTime,
+                endTime: sessionEndTime,
+                duration: finalDuration,
+                cost: finalTotalCost,
+                isMultiplayer: isMultiplayer,
+                products: deviceProducts[deviceId]
+            };
+
+            // ✅ أضف الجلسة فقط إذا كانت صالحة
+            const sessionKey = `${sessionRecord.deviceId}-${sessionRecord.startTime}`;
+            const sessionRecords = JSON.parse(localStorage.getItem('sessionRecords') || '[]');
+            const isDuplicate = sessionRecords.some(record => 
+                `${record.deviceId}-${record.startTime}` === sessionKey
+            );
+            const isZeroSession = sessionRecord.duration === 0 && 
+                                 sessionRecord.cost === 0 && 
+                                 sessionRecord.products.length === 0;
+
+            if (!isDuplicate && !isZeroSession) {
+                sessionRecords.push(sessionRecord);
+                localStorage.setItem('sessionRecords', JSON.stringify(sessionRecords));
+
+                const dateKey = sessionStartTime.toISOString().split('T')[0];
+                const dailyReports = JSON.parse(localStorage.getItem('dailyReports') || '{}');
+                if (!dailyReports[dateKey]) dailyReports[dateKey] = [];
+                dailyReports[dateKey].push(sessionRecord);
+                localStorage.setItem('dailyReports', JSON.stringify(dailyReports));
+
+                generateTextReportForDate(dateKey);
+
+                // ✅ إضافة الفاتورة
+                const invoice = {
+                    id: 'inv-' + Date.now(),
+                    ...sessionRecord
+                };
+
+                let invoices = JSON.parse(localStorage.getItem('invoices') || '[]');
+                invoices.push(invoice);
+                localStorage.setItem('invoices', JSON.stringify(invoices));
+
+                updateReportTable();
+
+                alert(`فاتورة الجلسة:\nالوقت: ${finalTimeCost.toFixed(2)} جنيه\nالمنتجات: ${finalProductsCost.toFixed(2)} جنيه\nالإجمالي: ${finalTotalCost.toFixed(2)} جنيه`);
+            }
+
+            // ✅ إعادة تعيين حالة الجهاز
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            multiplayerBtn.disabled = false;
+            statusEl.textContent = 'متاح';
+            statusEl.classList.replace('in-use', 'available');
+            timerEl.textContent = '00:00:00';
+            costEl.textContent = '0.00';
+            deviceProducts[deviceId] = [];
+        };
+
+        // إصلاح: ربط الحدث بشكل صحيح
+        stopBtn.addEventListener('click', handleStop);
+    }); // إصلاح: إضافة القوس المفقود هنا
+}
+
+// ------ ربط الأحداث في الدالة الرئيسية ------ //
+document.addEventListener('DOMContentLoaded', () => {
+    restoreActiveSessions();
+    setupDeviceTimers();
+    loadReportAfterReload();
+    
+    
+     // ✅ كودك الجديد هنا
+    const lastSavedTime = localStorage.getItem('sessionStartTime');
+    if (lastSavedTime) {
+        let elapsedTime = Math.floor((new Date() - new Date(lastSavedTime)) / 1000);
+        console.log("الوقت المنقضي منذ آخر جلسة:", elapsedTime);
+        // تقدر تستدعي هنا دالة تحدث الـ timer حسب المطلوب
+    }
+});
+    
+    
+    
+    
+
+function saveDevicesToLocalStorage() {
+    const allDevices = [];
+    document.querySelectorAll('.device-box').forEach(box => {
+        const deviceId = box.getAttribute('data-id');
+        const title = box.querySelector('h3').textContent.trim();
+        const isPS5 = title.includes('PS5');
+
+        allDevices.push({
+            id: deviceId,
+            name: title,
+            type: isPS5 ? 'ps5' : 'ps4'
+        });
+    });
+
+    localStorage.setItem('savedDevices', JSON.stringify(allDevices));
+}
+function restoreDevicesFromLocalStorage() {
+    const savedDevices = JSON.parse(localStorage.getItem('savedDevices') || '[]');
+    savedDevices.forEach(device => {
+        const container = document.getElementById(`${device.type}-devices`);
+        const newDevice = document.createElement('div');
+        newDevice.className = 'device-box';
+        newDevice.setAttribute('data-id', device.id);
+
+        const label = device.name || `جهاز ${device.type.toUpperCase()} جديد`;
+
+        newDevice.innerHTML = `
+            <button class="delete-btn" title="حذف">×</button>
+            <h3>${label} <span class="status available">متاح</span></h3>
+            <div class="device-info">
+                <p>الوقت المستهلك: <span class="timer">00:00:00</span></p>
+                <p>التكلفة: <span class="cost">0.00</span> جنيه</p>
+            </div>
+            <div class="device-actions">
+                <button class="control-btn start-btn">بدء</button>
+                <button class="control-btn multiplayer-btn" title="تفعيل اللعب الزوجي">2P</button>
+                <button class="control-btn add-product-btn" title="إضافة منتج">+</button>
+                <button class="control-btn stop-btn" disabled>إيقاف</button>
+            </div>
+        `;
+
+        const addBtnContainer = container.querySelector('.add-new-container');
+        container.insertBefore(newDevice, addBtnContainer);
+    });
+
+    setupDeviceTimers();
+    setupDeleteButtons();
+    setupAddProductButtons();
+    restoreActiveSessions();
+}
+function loadInvoicesFromLocalStorage() {
+    try {
+        const invoices = JSON.parse(localStorage.getItem('invoices') || '[]');
+        invoices.forEach(invoice => {
+            // تأكد من وجود تاريخ البداية والنهاية ككائنات Date
+            invoice.startTime = new Date(invoice.startTime);
+            invoice.endTime = new Date(invoice.endTime);
+
+            // أعد بناء سجل الجلسة بناءً على الفاتورة
+            const sessionRecord = {
+                deviceId: invoice.deviceId,
+                deviceName: invoice.deviceName,
+                startTime: invoice.startTime,
+                endTime: invoice.endTime,
+                duration: invoice.duration,
+                cost: invoice.cost || invoice.timeCost, // استخدام كلا الحقلين للتأكد من التوافق
+                isMultiplayer: invoice.isMultiplayer,
+                products: invoice.products || [],
+                productsTotal: invoice.productsTotal || 0,
+                totalCost: invoice.totalCost || 0
+            };
+
+            sessionRecords.push(sessionRecord);
+
+            // تأكد من إضافتها لـ dailyReports
+            const dateKey = invoice.startTime.toISOString().split('T')[0];
+            if (!dailyReports[dateKey]) dailyReports[dateKey] = [];
+            dailyReports[dateKey].push(sessionRecord);
+        });
+
+        updateReportTable(); // تحديث جدول التقرير
+    } catch (error) {
+        console.error('فشل تحميل الفواتير من localStorage:', error);
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    restoreActiveSessions();
+    setupDeviceTimers();
+});
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+function handleStop(deviceBox, deviceId) {
+    // تأكد من وجود مؤقت نشط
+    if (!timerInterval) return;
+
+    // أوقف المؤقت وحذفه
+    clearInterval(timerInterval);
+    timerInterval = null;
+
+    // احسب التكلفة النهائية
+    const isPS5 = deviceBox.querySelector('h3').textContent.includes('PS5');
+    const basePrice = isPS5 ? 
+        parseFloat(document.getElementById('ps5-price').value) : 
+        parseFloat(document.getElementById('ps4-price').value);
+    const multiplier = isPS5 ?
+        parseFloat(document.getElementById('multiplayer-price-multiplier-ps5').value) :
+        parseFloat(document.getElementById('multiplayer-price-multiplier-ps4').value);
+    const totalCost = (seconds / 3600) * (isMultiplayer ? basePrice * multiplier : basePrice);
+
+    // عرض الفاتورة مرة واحدة فقط
+    if (!deviceBox.dataset.invoiceShown) {
+        alert(`الفاتورة: ${totalCost.toFixed(2)} جنيه`);
+        deviceBox.dataset.invoiceShown = 'true'; // وضع علامة لتجنب إعادة العرض
+    }
+
+    // تحديث حالة الواجهة
+    const stopBtn = deviceBox.querySelector('.stop-btn');
+    const startBtn = deviceBox.querySelector('.start-btn');
+    const multiplayerBtn = deviceBox.querySelector('.multiplayer-btn');
+    const statusEl = deviceBox.querySelector('.status');
+
+    stopBtn.disabled = true;
+    startBtn.disabled = false;
+    multiplayerBtn.disabled = false;
+    statusEl.textContent = 'متاح';
+    statusEl.classList.replace('in-use', 'available');
+
+    // حذف الجلسة من التخزين المحلي
+    const activeSessions = JSON.parse(localStorage.getItem('activeSessions') || {});
+    delete activeSessions[deviceId];
+    localStorage.setItem('activeSessions', JSON.stringify(activeSessions));
+
+    // إعادة تعيين البيانات
+    seconds = 0;
+    deviceBox.querySelector('.timer').textContent = '00:00:00';
+    deviceBox.querySelector('.cost').textContent = '0.00';
+}
+    
+    
+    
+    
+    function loadReportAfterReload() {
+    // 1. جلب البيانات المحفوظة من localStorage
+    const savedReports = localStorage.getItem('sessionRecords');
+    
+    if (savedReports) {
+        // 2. تحويل البيانات إلى مصفوفة JavaScript
+        const parsedReports = JSON.parse(savedReports);
+        
+        // 3. تحديث متغير sessionRecords العام
+        sessionRecords = parsedReports.map(report => ({
+            ...report,
+            startTime: new Date(report.startTime), // تحويل التاريخ
+            endTime: new Date(report.endTime)      // تحويل التاريخ
+        }));
+        
+        // 4. تحديث جدول التقرير
+        updateReportTable();
+    }
+}
+    
+    
+    
+// أضف هذا الكود في نهاية السكربت 
+document.addEventListener('DOMContentLoaded', function() {
+    let sessionRecords = JSON.parse(localStorage.getItem('sessionRecords')) || [];
+    let dailyReports = JSON.parse(localStorage.getItem('dailyReports')) || {};
+    // تهيئة المتغيرات إذا لم تكن موجودة
+    if (!window.sessionRecords) {
+        window.sessionRecords = JSON.parse(localStorage.getItem('sessionRecords')) || [];
+    }
+    if (!window.dailyReports) {
+        window.dailyReports = JSON.parse(localStorage.getItem('dailyReports')) || {};
+    }
+
+    // تعريف عناصر حذف التقارير
+    const deleteAllBtn = document.getElementById('delete-all-reports-btn');
+    const confirmDeleteModal = document.getElementById('confirm-delete-modal');
+    const cancelDeleteBtn = document.getElementById('cancel-delete');
+    const confirmDeleteBtn = document.getElementById('confirm-delete');
+    
+    if (deleteAllBtn && confirmDeleteModal && cancelDeleteBtn && confirmDeleteBtn) {
+        deleteAllBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            confirmDeleteModal.style.display = 'flex';
+        });
+        
+        cancelDeleteBtn.addEventListener('click', function() {
+            confirmDeleteModal.style.display = 'none';
+        });
+        
+        confirmDeleteBtn.addEventListener('click', function() {
+            // حذف جميع التقارير
+            localStorage.removeItem('sessionRecords');
+            localStorage.removeItem('dailyReports');
+            localStorage.removeItem('invoices');
+            
+            // إعادة تعيين المتغيرات
+            sessionRecords = [];
+            dailyReports = {};
+            
+            // تحديث الجدول
+            updateReportTable();
+            
+            // إغلاق المودال
+            confirmDeleteModal.style.display = 'none';
+            
+            alert('تم حذف جميع التقارير بنجاح!');
+        });
+        
+        // إغلاق عند النقر خارج المحتوى
+        window.addEventListener('click', function(event) {
+            if (event.target === confirmDeleteModal) {
+                confirmDeleteModal.style.display = 'none';
+            }
+        });
+    }
+});
+    
+function updateReportData() {
+    // 1. تحميل البيانات بطريقة أكثر أماناً
+    let sessionRecords = [];
+    try {
+        sessionRecords = JSON.parse(localStorage.getItem('sessionRecords')) || [];
+    } catch (e) {
+        console.error("خطأ في تحليل بيانات الجلسات:", e);
+        sessionRecords = [];
+    }
+
+    // 2. تحسين معالجة البيانات مع التحقق من القيم
+    const deviceSessions = {};
+    let totalDeviceRevenue = 0;
+    sessionRecords.forEach(session => {
+        // التحقق من وجود البيانات المطلوبة
+        if (!session?.deviceId) return;
+        if (!deviceSessions[session.deviceId]) {
+            deviceSessions[session.deviceId] = {
+                deviceName: session.deviceName || 'جهاز غير معروف',
+                totalTime: 0,
+                sessionCount: 0,
+                revenue: 0
+            };
+        }
+        // إضافة قيم افتراضية إذا كانت غير موجودة
+        deviceSessions[session.deviceId].totalTime += Number(session.duration) || 0;
+        deviceSessions[session.deviceId].sessionCount++;
+        deviceSessions[session.deviceId].revenue += Number(session.cost) || 0;
+    });
+
+    // 3. تحديث الجدول مع تحسينات إضافية
+    const devicesTable = document.getElementById('devices-report-table')?.querySelector('tbody');
+    if (!devicesTable) {
+        console.warn("جدول التقارير غير موجود!");
+        return;
+    }
+    // تفريغ الجدول بطريقة أكثر كفاءة
+    devicesTable.innerHTML = '';
+    Object.values(deviceSessions).forEach(device => {
+        const totalSeconds = device.totalTime;
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        // تنسيق الوقت مع التحسين
+        const formattedTime = [
+            hours.toString().padStart(2, '0'),
+            minutes.toString().padStart(2, '0'),
+            seconds.toString().padStart(2, '0')
+        ].join(':');
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${device.deviceName}</td>
+            <td>${formattedTime}</td>
+            <td>${device.sessionCount}</td>
+            <td>${device.revenue.toFixed(2)} جنيه</td>
+        `;
+        devicesTable.appendChild(row);
+        totalDeviceRevenue += device.revenue;
+    });
+
+    // 4. تحديث الملخص بطريقة آمنة
+    const summaryItems = document.querySelectorAll('.summary-item');
+    if (summaryItems.length > 0) {
+        const revenueText = `${totalDeviceRevenue.toFixed(2)} جنيه`;
+        if (summaryItems[0]) {
+            const span = summaryItems[0].querySelector('span:last-child');
+            if (span) span.textContent = revenueText;
+        }
+        if (summaryItems[3]) {
+            const span = summaryItems[3].querySelector('span:last-child');
+            if (span) span.textContent = revenueText;
+        }
+    }
+}
+    
+    // إضافة قناة اتصال مع Service Worker
+const channel = new BroadcastChannel ? new BroadcastChannel('timer-channel') : null;
+
+if (channel) {
+    channel.addEventListener('message', (event) => {
+        if (event.data.type === 'timer-update') {
+            const { deviceId, seconds } = event.data;
+            // البحث عن الجهاز في الصفحة وتحديث واجهته
+            const deviceBox = document.querySelector(`.device-box[data-id="${deviceId}"]`);
+            if (deviceBox && deviceBox.querySelector('.status').textContent === 'قيد الاستخدام') {
+                const timerEl = deviceBox.querySelector('.timer');
+                const costEl = deviceBox.querySelector('.cost');
+
+                // تحديث الوقت المعروض
+                const hours = Math.floor(seconds / 3600);
+                const minutes = Math.floor((seconds % 3600) / 60);
+                const secs = seconds % 60;
+                timerEl.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+                // تحديث التكلفة (هناخد السعر من الإعدادات)
+                const isPS5 = deviceBox.querySelector('h3').textContent.includes('PS5');
+                const basePrice = isPS5 ? 
+                    parseFloat(document.getElementById('ps5-price').value) : 
+                    parseFloat(document.getElementById('ps4-price').value);
+                const multiplier = isPS5 ?
+                    parseFloat(document.getElementById('multiplayer-price-multiplier-ps5').value) :
+                    parseFloat(document.getElementById('multiplayer-price-multiplier-ps4').value);
+
+                // نحتاج isMultiplayer — هنجيبه من localStorage
+                const activeSessions = JSON.parse(localStorage.getItem('activeSessions') || '{}');
+                const isMultiplayer = activeSessions[deviceId]?.isMultiplayer || false;
+
+                const timeCost = (seconds / 3600) * (isMultiplayer ? basePrice * multiplier : basePrice);
+                costEl.textContent = timeCost.toFixed(2);
+
+                // تحديث localStorage
+                if (activeSessions[deviceId]) {
+                    activeSessions[deviceId].seconds = seconds;
+                    localStorage.setItem('activeSessions', JSON.stringify(activeSessions));
+                }
+            }
+        }
+    });
+}
+
+// عند بدء جلسة جديدة، أرسل إشارة للـ Service Worker
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('start-btn') && !e.target.disabled) {
+        // انتظر شوية عشان الجلسة تتسجل في localStorage
+        setTimeout(() => {
+            const deviceBox = e.target.closest('.device-box');
+            const deviceId = deviceBox.getAttribute('data-id');
+            const activeSessions = JSON.parse(localStorage.getItem('activeSessions') || '{}');
+            const session = activeSessions[deviceId];
+
+            if (session) {
+                // أرسل أمر "بدء" للـ Service Worker
+                if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+                    navigator.serviceWorker.controller.postMessage({
+                        action: 'start',
+                        deviceId,
+                        startTime: session.startTime,
+                        isMultiplayer: session.isMultiplayer
+                    });
+                }
+            }
+        }, 100);
+    }
+});
+
+// عند إيقاف الجلسة، أرسل أمر "إيقاف"
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('stop-btn') && !e.target.disabled) {
+        const deviceBox = e.target.closest('.device-box');
+        const deviceId = deviceBox.getAttribute('data-id');
+
+        if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage({
+                action: 'stop',
+                deviceId
+            });
+        }
+    }
+});
+   
+    
+    
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('✅ Service Worker مسجل:', reg.scope))
+      .catch(err => console.log('❌ فشل تسجيل Service Worker:', err));
+  });
+}
+
+ </script>
+     <script src="register-sw.js"></script>
+</body>
+</html>
